@@ -1,4 +1,6 @@
 import './App.css'
+import AdminPanel from './AdminPanel';
+import LoginForm from './LoginForm';
 
 const user = {
   name: 'Hedy Lamarr',
@@ -8,29 +10,21 @@ const user = {
 
 function App() {
 
+  let isLoggedIn = false;
+
   return (
     <>
-      <Profile />
+      <div>
+        {isLoggedIn ? (
+          <AdminPanel />
+        ) : (
+          <LoginForm />
+        )}
+      </div>
     </>
   )
 }
 
-function Profile() {
-  return (
-    <>
-      <h1>{user.name}</h1>
-      <img
-        className="avatar"
-        src={user.imageUrl}
-        alt={'Photo of ' + user.name}
-        style={{
-          width: user.imageSize,
-          height: user.imageSize
-        }}
-      />
-    </>
-  );
-}
 
 
 
